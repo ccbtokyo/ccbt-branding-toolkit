@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logo Tool</title>
+  <script type="module" src="main.js"></script>
+  <style>
+    html, body {
+      width: 100%;
+      height: 100%;
+    }
+    body {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    canvas {
+      display: block;
+      width: 400px;
+      height: 400px;
+    }
+    button {
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
+    }
+    #tool {
+      box-sizing: border-box;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 80px;
+      margin: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    #color {
+      width: 100%;
+    }
+    #hslider,
+    #vslider {
+      width: 80px;
+      margin: 0.25rem 0;
+    }
+    #randomRotation,
+    #reset {
+      width: 80px;
+      font-size: 1rem;
+      margin: 0.25rem 0;
+    }
+  </style>
+</head>
+<body>
+  <canvas width="400" height="400"></canvas>
+  <div id="tool">
+    <button value="rect" class="mode">■</button>
+    <button value="circle" class="mode">●</button>
+    <button value="arc-ul" class="mode">◜</button>
+    <button value="arc-ur" class="mode">◝</button>
+    <button value="arc-ll" class="mode">◟</button>
+    <button value="arc-lr" class="mode">◞</button>
+    <button value="tri-ul" class="mode">◢</button>
+    <button value="tri-ur" class="mode">◣</button>
+    <button value="tri-ll" class="mode">◥</button>
+    <button value="tri-lr" class="mode">◤</button>
+    <input type="color" id="color">
+    <label><input type="checkbox" id="toggle-grid" checked="true">Grid</label>
+    <input type="range" id="hslider" min="0.0" max="3.0" value="1.0" step="0.1">
+    <input type="range" id="vslider" min="0.0" max="3.0" value="1.0" step="0.1">
+    <button id="randomRotation">Rotate</button>
+    <button id="reset">Reset</button>
+  </div>
+</body>
+</html>
