@@ -4,7 +4,7 @@ class Shape {
   constructor(x, y, mode, color) {
     this.x = x;
     this.y = y;
-    this.mode = mode;
+    this.type = mode;
     this.color = color;
     this.angle = 0;
     this.hScale = 1.0;
@@ -18,7 +18,7 @@ class Shape {
     g.ctx.translate(this.x + g.GRID_SIZE / 2, this.y + g.GRID_SIZE / 2);
     g.ctx.rotate(this.angle);
     g.ctx.translate(-this.x - g.GRID_SIZE / 2, -this.y - g.GRID_SIZE / 2);
-    switch (this.mode) {
+    switch (this.type) {
       case 'rect':
         g.ctx.fillRect(this.x, this.y, g.GRID_SIZE * this.hScale, g.GRID_SIZE * this.vScale);
         break;

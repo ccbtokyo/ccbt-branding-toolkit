@@ -49,6 +49,15 @@ class Tool {
         g.shapes[i].angle = 0;
       }
     });
+
+    const randShape = document.getElementById('randomShape');
+    const shapeTypes = ['rect', 'circle', 'arc-ul', 'arc-ur', 'arc-lr', 'arc-ll', 'tri-ur', 'tri-ul', 'tri-lr', 'tri-ll'];
+    randShape.addEventListener('click', () => {
+      for (let i = 0; i < g.shapes.length; i++) {
+        const shapeIndex = Math.floor(Math.random() * shapeTypes.length);
+        g.shapes[i].type = shapeTypes[shapeIndex];
+      }
+    });
   }
 }
 
