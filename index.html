@@ -49,9 +49,7 @@
       width: 80px;
       margin: 0.25rem 0;
     }
-    #randomShape,
-    #randomRotation,
-    #reset {
+    .action {
       width: 80px;
       font-size: 1rem;
       margin: 0.25rem 0;
@@ -75,9 +73,14 @@
     <label><input type="checkbox" id="toggle-grid" checked="true">Grid</label>
     <input type="range" id="hslider" min="0.0" max="3.0" value="1.0" step="0.1">
     <input type="range" id="vslider" min="0.0" max="3.0" value="1.0" step="0.1">
-    <button id="randomShape">Random</button>
-    <button id="randomRotation">Rotate</button>
-    <button id="reset">Reset</button>
+    <button class="action" id="randomShape">Random</button>
+    <button class="action" id="randomRotation">Rotate</button>
+    <button class="action" id="reset">Reset</button>
+    <button class="action" id="export">Export</button>
+    <label class="action">
+      <input id="import" type="file" value="Import">
+    </label>
+    <button class="action" id="clear">Clear</button>
   </div>
 </body>
 </html>
