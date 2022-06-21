@@ -81,7 +81,7 @@ class Tool {
       reader.addEventListener('load', e => {
         const shapes = JSON.parse(e.target.result);
         for(let i=0; i<shapes.length; i++) {
-          let s = new Shape(shapes[i].x, shapes[i].y, shapes[i].shape, shapes[i].color);
+          let s = new Shape(shapes[i].x, shapes[i].y, shapes[i].type, shapes[i].color);
           g.shapes.push(s);
         }
       });
@@ -91,7 +91,7 @@ class Tool {
     const clear = document.getElementById('clear');
     clear.addEventListener('click', () => {
       g.shapes = [];
-      g.ctx.clearRect(0, 0, g.CANVAS_SIZE, g.CANVAS_SIZE);
+      g.ctx.clearRect(0, 0, g.CANVAS_WIDTH, g.CANVAS_HEIGHT);
     });
   }
 }

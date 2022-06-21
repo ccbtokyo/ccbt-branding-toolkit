@@ -1,7 +1,9 @@
 const g = {
-  "GRID_NUMBER": 10,
+  "GRID_H": 20,
+  "GRID_V": 10,
   "GRID_SIZE": 40,
-  "CANVAS_SIZE": 400,
+  "CANVAS_WIDTH": 800,
+  "CANVAS_HEIGHT": 400,
   "currentMode": "rect",
   "currentColor": "rgb(0, 0, 0)",
   "shapes": [],
