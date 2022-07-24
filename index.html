@@ -1,84 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Logo Tool</title>
-  <script type="module" src="main.js"></script>
-  <style>
-    html, body {
-      width: 100%;
-      height: 100%;
-    }
-    body {
-      margin: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    canvas {
-      display: block;
-    }
-    button {
-      width: 40px;
-      height: 40px;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 2rem;
-    }
-    #tool {
-      box-sizing: border-box;
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 80px;
-      margin: 1rem;
-      display: flex;
-      flex-wrap: wrap;
-    }
-    #color {
-      width: 100%;
-    }
-    #hslider,
-    #vslider {
-      width: 80px;
-      margin: 0.25rem 0;
-    }
-    .action {
-      width: 80px;
-      font-size: 1rem;
-      margin: 0.25rem 0;
-    }
-  </style>
-</head>
-<body>
-  <canvas width="800" height="400"></canvas>
-  <div id="tool">
-    <button value="rect" class="mode">■</button>
-    <button value="circle" class="mode">●</button>
-    <button value="arc-ul" class="mode">◜</button>
-    <button value="arc-ur" class="mode">◝</button>
-    <button value="arc-ll" class="mode">◟</button>
-    <button value="arc-lr" class="mode">◞</button>
-    <button value="tri-ul" class="mode">◢</button>
-    <button value="tri-ur" class="mode">◣</button>
-    <button value="tri-ll" class="mode">◥</button>
-    <button value="tri-lr" class="mode">◤</button>
-    <input type="color" id="color">
-    <label><input type="checkbox" id="toggle-grid" checked="true">Grid</label>
-    <input type="range" id="hslider" min="0.0" max="3.0" value="1.0" step="0.1">
-    <input type="range" id="vslider" min="0.0" max="3.0" value="1.0" step="0.1">
-    <button class="action" id="randomShape">Random</button>
-    <button class="action" id="randomRotation">Rotate</button>
-    <button class="action" id="reset">Reset</button>
-    <button class="action" id="export">Export</button>
-    <label class="action">
-      <input id="import" type="file" value="Import">
-    </label>
-    <button class="action" id="clear">Clear</button>
-  </div>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Logo Tool</title>
+    <script type="module" src="main.js"></script>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+      }
+      body {
+        font-family: sans-serif;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      canvas {
+        display: block;
+      }
+      button {
+        background-color: #fff;
+        border: 1px solid #000;
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2rem;
+      }
+      button:hover {
+        opacity: 0.5;
+      }
+      .selected {
+        background-color: #eaeaea;
+      }
+      #tool {
+        box-sizing: border-box;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 80px;
+        margin: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+      }
+      #color {
+        width: 100%;
+        margin: 0.5rem 0;
+      }
+      .action {
+        width: 100%;
+        font-size: 1rem;
+        margin: 0.5rem 0;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas width="800" height="400"></canvas>
+    <div id="tool">
+      <button value="rect" class="mode selected">
+        <svg width="40px" height="40px">
+          <rect x="10" y="10" width="20" height="20" fill="black" />
+        </svg>
+      </button>
+      <button value="circle" class="mode">
+        <svg width="40px" height="40px">
+          <circle cx="20" cy="20" r="10" fill="black" />
+        </svg>
+      </button>
+      <button value="arc-ul" class="mode">
+        <svg width="40px" height="40px">
+          <path d="M 30 10 A 20 20 0 0 0 10 30 L 30 30" />
+        </svg>
+      </button>
+      <button value="arc-ur" class="mode">
+        <svg width="40px" height="40px">
+          <path d="M 10 10 A 20 20 0 0 1 30 30 L 10 30" />
+        </svg>
+      </button>
+      <button value="arc-ll" class="mode">
+        <svg width="40px" height="40px">
+          <path d="M 10 10 A 20 20 0 0 0 30 30 L 30 10" />
+        </svg>
+      </button>
+      <button value="arc-lr" class="mode">
+        <svg width="40px" height="40px">
+          <path d="M 10 30 A 20 20 0 0 0 30 10 L 10 10" />
+        </svg>
+      </button>
+      <button value="tri-ul" class="mode">
+        <svg width="40px" height="40px">
+          <path d="M 10 30 L 30 10 L 30 30 Z" />
+        </svg>
+      </button>
+      <button value="tri-ur" class="mode">
+        <svg width="40px" height="40px">
+          <path d="M 10 10 L 30 30 L 10 30 Z" />
+        </svg>
+      </button>
+      <button value="tri-ll" class="mode">
+        <svg width="40px" height="40px">
+          <path d="M 10 10 L 30 10 L 30 30 Z" />
+        </svg>
+      </button>
+      <button value="tri-lr" class="mode">
+        <svg width="40px" height="40px">
+          <path d="M 10 10 L 30 10 L 10 30 Z" />
+        </svg>
+      </button>
+      <input type="color" id="color" />
+      <label
+        ><input type="checkbox" id="toggle-grid" checked="true" />Grid</label
+      >
+      <button class="action" id="export">Export</button>
+      <button class="action" id="import">Import</button>
+      <button class="action" id="clear">Clear</button>
+    </div>
+  </body>
 </html>
