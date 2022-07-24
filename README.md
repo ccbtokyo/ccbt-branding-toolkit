@@ -1,8 +1,8 @@
-# CCBT Identity Tool
+# CCBT Branding Toolkit
 CCBTのロゴタイプやシンボル、テキストを作るためのエディタです
 
 ## ロゴタイプ、シンボル、テキストへのコントリビューション
 準備中です
 
 ## ツールへのコントリビューション
-リポジトリをCloneしてPull Requestを送ってください
+準備中です
