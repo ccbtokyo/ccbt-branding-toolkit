@@ -5,6 +5,7 @@ const g = {
   "currentMode": "rect",
   "currentColor": "rgb(0, 0, 0)",
   "shapes": [],
+  "shapesIndex": 0,
   "grid": true
 }
 
