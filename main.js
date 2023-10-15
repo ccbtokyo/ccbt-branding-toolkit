@@ -40,7 +40,6 @@ window.addEventListener('load', () => {
       }
     }
 
-    // for (let i = 0; i < g.shapes.length; i++) {
     for (let i = 0; i < Math.min((g.shapesIndex + 1), g.shapes.length); i++) {
       g.shapes[i].draw();
     }
@@ -100,7 +99,6 @@ window.addEventListener('load', () => {
       }
     }
   });
-  // --
 
   document.addEventListener('keydown', (e) => {
     const { ctrlKey, shiftKey, code } = e;

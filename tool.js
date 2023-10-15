@@ -59,6 +59,7 @@ class Tool {
             );
             g.shapes.push(s);
           }
+          g.shapesIndex = g.shapes.length - 1;
         });
         reader.readAsText(file);
       };

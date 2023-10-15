@@ -2,7 +2,7 @@ const g = {
   "GRID_SIZE": 40,
   "GRID_COLS": 20,
   "GRID_ROWS": 10,
-  "currentMode": "rect",
+  "currentMode": "0",
   "currentColor": "rgb(0, 0, 0)",
   "shapes": [],
   "shapesIndex": 0,
