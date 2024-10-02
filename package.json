@@ -1,0 +1,17 @@
+{
+  "name": "ccbt-branding-toolkit",
+  "version": "1.0.0",
+  "description": "CCBTのロゴタイプやシンボル、テキストを作るためのエディタです",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5"
+  }
+}
